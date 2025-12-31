@@ -1,0 +1,85 @@
+.suppliers-page {
+  padding: 30px;
+  background: #f9fafb;
+}
+
+.suppliers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.suppliers-header h2 {
+  font-size: 24px;
+  color: #1f2937;
+}
+
+.suppliers-header input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.supplier-form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.supplier-form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.supplier-form button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.supplier-form button:hover {
+  background: #1d4ed8;
+}
+
+.suppliers-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.suppliers-table th,
+.suppliers-table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.suppliers-table th {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.suppliers-table button {
+  margin-right: 5px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.suppliers-table button:first-child {
+  background: #facc15;
+}
+
+.suppliers-table button:last-child {
+  background: #ef4444;
+  color: white;
+}

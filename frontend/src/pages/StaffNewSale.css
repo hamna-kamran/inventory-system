@@ -1,0 +1,45 @@
+.sale-form {
+  max-width: 400px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.sale-form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.sale-form input,
+.sale-form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.sale-form button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sale-form button:hover {
+  background: #1e40af;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}

@@ -1,0 +1,78 @@
+.staff-products {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Body layout */
+.dashboard-body {
+  display: flex;
+  flex: 1;
+  background: #f4f6f8;
+}
+
+/* Main content */
+.dashboard-main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.dashboard-main h1 {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+table thead {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* Quantity color indicators */
+table td:nth-child(3) {
+  font-weight: 600;
+}
+
+table td:nth-child(3):not(:empty) {
+  color: #16a34a;
+}
+
+/* Low stock highlight (optional) */
+table tr.low-stock {
+  background-color: #fff1f2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  .dashboard-main {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #667eea;
+  color: white;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar-user span {
+  margin-right: 15px;
+}
+
+.navbar-user button {
+  padding: 5px 10px;
+  background: #f56565;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
