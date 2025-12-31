@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import API from "../api/axios";
 import "./Sales.css";
 
@@ -8,20 +8,20 @@ const Sales = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
 
-  const fetchSales = async () => {
+  const fetchSales = useCallback(async () => {
     const res = await API.get(`/sales?search=${search}`);
     setSales(res.data);
-  };
+  }, [search]);
 
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     const res = await API.get("/products");
     setProducts(res.data);
-  };
+  }, []);
 
   useEffect(() => {
     fetchSales();
     fetchProducts();
-  }, [search]);
+  }, [fetchSales, fetchProducts]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -86,25 +86,21 @@ const Sales = () => {
           </tr>
         </thead>
         <tbody>
-  {sales.map((s) => (
-    <tr key={s._id}>
-      <td>{s.product?.name || "Deleted Product"}</td>
-      <td>{s.quantity}</td>
-      <td>${s.totalPrice}</td>
-      <td>{s.customerName || "-"}</td>
-      <td>{new Date(s.soldAt).toLocaleString()}</td>
-      <td>
-        <button
-          onClick={() => deleteSale(s._id)}
-          className="btn-delete"
-        >
-          Delete
-        </button>
-      </td>
-    </tr>
-  ))}
-</tbody>
-
+          {sales.map((s) => (
+            <tr key={s._id}>
+              <td>{s.product?.name || "Deleted Product"}</td>
+              <td>{s.quantity}</td>
+              <td>${s.totalPrice}</td>
+              <td>{s.customerName || "-"}</td>
+              <td>{new Date(s.soldAt).toLocaleString()}</td>
+              <td>
+                <button onClick={() => deleteSale(s._id)} className="btn-delete">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );

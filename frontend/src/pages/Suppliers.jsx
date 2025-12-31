@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import API from "../api/axios";
 import "./Suppliers.css";
 
@@ -13,14 +13,14 @@ const Suppliers = () => {
   const [search, setSearch] = useState("");
   const [editId, setEditId] = useState(null);
 
-  const fetchSuppliers = async () => {
+  const fetchSuppliers = useCallback(async () => {
     const res = await API.get(`/suppliers?search=${search}`);
     setSuppliers(res.data);
-  };
+  }, [search]);
 
   useEffect(() => {
     fetchSuppliers();
-  }, [search]);
+  }, [fetchSuppliers]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

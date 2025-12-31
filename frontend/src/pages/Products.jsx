@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import API from "../api/axios";
 import "../pages/products.css";
 
@@ -13,14 +13,15 @@ const Products = () => {
   const [search, setSearch] = useState("");
   const [editId, setEditId] = useState(null);
 
-  const fetchProducts = async () => {
+  // Wrap fetchProducts with useCallback to satisfy ESLint
+  const fetchProducts = useCallback(async () => {
     const res = await API.get(`/products?search=${search}`);
     setProducts(res.data);
-  };
+  }, [search]);
 
   useEffect(() => {
     fetchProducts();
-  }, [search]);
+  }, [fetchProducts]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
